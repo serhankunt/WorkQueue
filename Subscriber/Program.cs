@@ -7,8 +7,8 @@ using var connection = factory.CreateConnection();
 using var channel = connection.CreateModel();
 
 channel.ExchangeDeclare(exchange: "logs", type: ExchangeType.Fanout);
-channel.QueueDeclare("hello-queue1", false, false, false);
-channel.BasicQos(prefetchSize: 0, prefetchCount: 5, global: false);
+channel.QueueDeclare("hello-queue1", false, false, false, arguments: null);
+
 //prefetchSize Mesaj boyutunu belirtir.0 değeri mesajın boyutuyla ilgilenmediğimizi belirtir.
 //prefetchCount mesaj dağıtım adetini ifade eder.Kaç kaç gelsin.
 //global: true=> tüm consumerların aynı anda prefetchCount parametresinde belirtilen değer kadar mesaj tüketebileceğini ifade eder.6mesaj 3 subscriber var ise 2şer şekilde dağıtımı gerçekleştiriyor.
@@ -22,6 +22,7 @@ channel.QueueBind(
 
 Console.WriteLine("[*] waiting for logs");
 
+channel.BasicQos(prefetchSize: 0, prefetchCount: 5, global: false);
 var consumer = new EventingBasicConsumer(channel);
 
 consumer.Received += (model, ea) =>

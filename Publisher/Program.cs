@@ -7,7 +7,7 @@ using var channel = connection.CreateModel();
 
 channel.ExchangeDeclare(exchange: "logs", type: ExchangeType.Fanout);
 
-channel.QueueDeclare("hello-queue1", false, false, false);
+channel.QueueDeclare("hello-queue1", false, false, false, arguments: null);
 
 channel.QueueBind("hello-queue1", exchange: "logs", routingKey: string.Empty);
 
