@@ -29,7 +29,7 @@ while (i < 100)
     }
 
     channel.QueueBind(queue, exchange: "double_queue_logs", routingKey: routeKey);
-    var message = (args.Length > 1) ? string.Join(" ", args.Skip(1).ToArray()) : "Serhanı göttenzikemzzz " + i;
+    var message = (args.Length > 1) ? string.Join(" ", args.Skip(1).ToArray()) : "Ahmet göttenzikemzzz " + i;
     i++;
 
     var body = Encoding.UTF8.GetBytes(message);
