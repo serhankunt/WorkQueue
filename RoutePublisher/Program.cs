@@ -1,13 +1,14 @@
 ﻿using RabbitMQ.Client;
 using System.Text;
 
+Thread.Sleep(5000);
 var factory = new ConnectionFactory { HostName = "localhost" };
 using var connection = factory.CreateConnection();
 using var channel = connection.CreateModel();
 
 channel.ExchangeDeclare(exchange: "direct_logs", type: ExchangeType.Direct);
 
-channel.QueueDeclare("deneme", false, false, false, arguments: null);
+var queue = channel.QueueDeclare("deneme", false, false, false, arguments: null);
 
 
 int i = 0;
@@ -24,9 +25,9 @@ while (i < 100)
         severity = denemeList[1];
     }
 
-    channel.QueueBind("deneme", exchange: "direct_logs", routingKey: severity);
+    channel.QueueBind(queue, exchange: "direct_logs", routingKey: severity);
 
-    var message = (args.Length > 1) ? string.Join(" ", args.Skip(1).ToArray()) : "Göt Ahmet" + i;
+    var message = (args.Length > 1) ? string.Join(" ", args.Skip(1).ToArray()) : "Göt Serhan" + i;
     i++;
 
     var body = Encoding.UTF8.GetBytes(message);
