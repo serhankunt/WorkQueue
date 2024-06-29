@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publisher", "Publisher\Publ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscriber", "Subscriber\Subscriber.csproj", "{13A9770F-012B-405C-9C5E-1522F6F4174B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutePublisher", "RoutePublisher\RoutePublisher.csproj", "{13F58D77-DCAC-4F77-B419-2C0ED3DB0BFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RouteSubscriber", "RouteSubscriber\RouteSubscriber.csproj", "{336F7899-2D8A-4DA3-B4E2-A13240107DAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{13A9770F-012B-405C-9C5E-1522F6F4174B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13A9770F-012B-405C-9C5E-1522F6F4174B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13A9770F-012B-405C-9C5E-1522F6F4174B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13F58D77-DCAC-4F77-B419-2C0ED3DB0BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13F58D77-DCAC-4F77-B419-2C0ED3DB0BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13F58D77-DCAC-4F77-B419-2C0ED3DB0BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13F58D77-DCAC-4F77-B419-2C0ED3DB0BFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{336F7899-2D8A-4DA3-B4E2-A13240107DAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{336F7899-2D8A-4DA3-B4E2-A13240107DAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{336F7899-2D8A-4DA3-B4E2-A13240107DAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{336F7899-2D8A-4DA3-B4E2-A13240107DAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
