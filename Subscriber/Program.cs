@@ -6,7 +6,7 @@ var factory = new ConnectionFactory { HostName = "localhost" };
 using var connection = factory.CreateConnection();
 using var channel = connection.CreateModel();
 
-channel.ExchangeDeclare(exchange: "logs", type: ExchangeType.Fanout);
+//channel.ExchangeDeclare(exchange: "logs", type: ExchangeType.Fanout);
 channel.QueueDeclare("hello-queue1", false, false, false, arguments: null);
 
 //prefetchSize Mesaj boyutunu belirtir.0 değeri mesajın boyutuyla ilgilenmediğimizi belirtir.
@@ -14,16 +14,21 @@ channel.QueueDeclare("hello-queue1", false, false, false, arguments: null);
 //global: true=> tüm consumerların aynı anda prefetchCount parametresinde belirtilen değer kadar mesaj tüketebileceğini ifade eder.6mesaj 3 subscriber var ise 2şer şekilde dağıtımı gerçekleştiriyor.
 //        false=>her bir consumer'ın işleme sürecinde diğer consumerlardan bağımsız bir şekilde kaç mesaj alacağı belirtilir.
 
-var queueName = channel.QueueDeclare().QueueName;
+
 channel.QueueBind(
-    queue: queueName,
+    queue: "hello-queue1",
     exchange: "logs",
     routingKey: string.Empty);
 
 Console.WriteLine("[*] waiting for logs");
 
-channel.BasicQos(prefetchSize: 0, prefetchCount: 5, global: false);
+channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
 var consumer = new EventingBasicConsumer(channel);
+
+channel.BasicConsume(
+    queue: "hello-queue1",
+    autoAck: false,
+    consumer: consumer);
 
 consumer.Received += (model, ea) =>
 {
@@ -39,10 +44,7 @@ consumer.Received += (model, ea) =>
 
 };
 
-channel.BasicConsume(
-    queue: queueName,
-    autoAck: false,
-    consumer: consumer);
+
 
 Console.WriteLine("Press [enter] to exit");
 
