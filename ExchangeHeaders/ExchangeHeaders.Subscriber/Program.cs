@@ -1,6 +1,8 @@
 ﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using Shared;
 using System.Text;
+using System.Text.Json;
 
 var factory = new ConnectionFactory { HostName = "localhost" };
 using var connection = factory.CreateConnection();
@@ -16,7 +18,7 @@ Dictionary<string, object> headers = new Dictionary<string, object>();
 
 headers.Add("format", "pdf");
 headers.Add("shape", "a4");
-headers.Add("x-match", "all");
+headers.Add("x-match", "any");
 
 channel.QueueBind(queueName, "header-exchange", String.Empty, headers);
 
@@ -27,7 +29,9 @@ Console.WriteLine("Loglar dinleniyor");
 consumer.Received += (model, ea) =>
 {
     var message = Encoding.UTF8.GetString(ea.Body.ToArray());
-    Console.WriteLine("Gelen Mesaj :" + message);
+    Product? product = JsonSerializer.Deserialize<Product>(message);
+
+    Console.WriteLine($"Gelen Mesaj: {product!.Id}-{product.Name}-{product.Price}");
     channel.BasicAck(ea.DeliveryTag, false);
 };
 
