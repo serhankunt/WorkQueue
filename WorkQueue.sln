@@ -17,13 +17,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RouteMQ", "RouteMQ", "{400D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DoubleQueueMQ", "DoubleQueueMQ", "{115952F9-743D-4178-9FC3-A53BD25F7FDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publisher", "Producer\Publisher.csproj", "{2159C8EF-5661-428A-B63D-1FCAD2CF18DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Publisher", "Producer\Publisher.csproj", "{2159C8EF-5661-428A-B63D-1FCAD2CF18DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstSubscriber", "FirstSubscriber\FirstSubscriber.csproj", "{A21ACDC9-5885-4B48-9754-DCA88106DDC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstSubscriber", "FirstSubscriber\FirstSubscriber.csproj", "{A21ACDC9-5885-4B48-9754-DCA88106DDC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscriber.Library", "Subscriber.Library\Subscriber.Library.csproj", "{4BFA48BE-19D9-4E17-A71B-D02EC4F30D3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscriber.Library", "Subscriber.Library\Subscriber.Library.csproj", "{4BFA48BE-19D9-4E17-A71B-D02EC4F30D3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondSubscriber", "SecondSubscriber\SecondSubscriber.csproj", "{BC398CC8-EB74-46EF-B3EB-B5112C5474F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecondSubscriber", "SecondSubscriber\SecondSubscriber.csproj", "{BC398CC8-EB74-46EF-B3EB-B5112C5474F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExchangeHeaders", "ExchangeHeaders", "{51C6BDEE-C1D9-46B8-BF20-4782F40C09AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeHeaders.Publisher", "ExchangeHeaders\ExchangeHeaders.Publisher\ExchangeHeaders.Publisher.csproj", "{A5926BF1-FEE2-40DC-9EA3-D315CAF3F87B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeHeaders.Subscriber", "ExchangeHeaders\ExchangeHeaders.Subscriber\ExchangeHeaders.Subscriber.csproj", "{043E41C1-18A6-48C0-B180-329DCF9C0062}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +69,14 @@ Global
 		{BC398CC8-EB74-46EF-B3EB-B5112C5474F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC398CC8-EB74-46EF-B3EB-B5112C5474F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC398CC8-EB74-46EF-B3EB-B5112C5474F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5926BF1-FEE2-40DC-9EA3-D315CAF3F87B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5926BF1-FEE2-40DC-9EA3-D315CAF3F87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5926BF1-FEE2-40DC-9EA3-D315CAF3F87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5926BF1-FEE2-40DC-9EA3-D315CAF3F87B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{043E41C1-18A6-48C0-B180-329DCF9C0062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{043E41C1-18A6-48C0-B180-329DCF9C0062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{043E41C1-18A6-48C0-B180-329DCF9C0062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{043E41C1-18A6-48C0-B180-329DCF9C0062}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +90,8 @@ Global
 		{A21ACDC9-5885-4B48-9754-DCA88106DDC3} = {115952F9-743D-4178-9FC3-A53BD25F7FDA}
 		{4BFA48BE-19D9-4E17-A71B-D02EC4F30D3B} = {115952F9-743D-4178-9FC3-A53BD25F7FDA}
 		{BC398CC8-EB74-46EF-B3EB-B5112C5474F2} = {115952F9-743D-4178-9FC3-A53BD25F7FDA}
+		{A5926BF1-FEE2-40DC-9EA3-D315CAF3F87B} = {51C6BDEE-C1D9-46B8-BF20-4782F40C09AE}
+		{043E41C1-18A6-48C0-B180-329DCF9C0062} = {51C6BDEE-C1D9-46B8-BF20-4782F40C09AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E07BDDB9-3184-4E37-92F0-4C372E90D3CF}
